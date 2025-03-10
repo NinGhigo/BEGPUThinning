@@ -23,7 +23,13 @@
 * object pixels along the boundary of the volume. The memory for out_x, out_y, out_z and out_idx
 * is allocated by the function. The caller is responsible for deleteting this memory!
 */
+#ifdef _WIN32
+  #define EXPORT __declspec(dllexport)
+#else
+  #define EXPORT
+#endif
+
 template< typename PixelType>
-unsigned int CenterlineExtraction(PixelType *data, int width, int height, int depth,
+EXPORT unsigned int CenterlineExtraction(PixelType *data, int width, int height, int depth,
 	int max_segment_length, int smoothing_span,
 	float **out_x, float **out_y, float **out_z, unsigned int **out_idx);

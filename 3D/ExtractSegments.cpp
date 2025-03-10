@@ -9,6 +9,10 @@
  */
 
 #include "ExtractSegments.h"
+#include <cmath>
+#include <cstring>
+
+
 
 using namespace std;
 
@@ -189,7 +193,8 @@ vector<SSegment *> ExtractSegmentsV(PixelType *data, int width, int height, int 
 		{
 			// Create Segment
 			SSegment *seg = new SSegment();
-			if (abs(onn[idx]) < 2) seg->is_end_segment = true;
+			if (std::abs(onn[idx]) < 2) seg->is_end_segment = true;
+
 			point3D sp = { (float)it->x, (float)it->y, (float)it->z };
 			seg->points.push_back(sp);
 
@@ -237,7 +242,7 @@ vector<SSegment *> ExtractSegmentsV(PixelType *data, int width, int height, int 
 
 			point3D ep = { ex, ey, ez };
 			seg->points.push_back(ep);
-			if (abs(onn[tidx]) < 2) seg->is_end_segment = true;
+			if (std::abs(onn[tidx]) < 2) seg->is_end_segment = true;
 			neighbors[tidx] += 1;
 			segments.push_back(seg);
 		}

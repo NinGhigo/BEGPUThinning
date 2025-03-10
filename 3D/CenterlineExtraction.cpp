@@ -154,7 +154,7 @@ unsigned int CenterlineExtraction(PixelType *data, int width, int height, int de
 
 }
 
-template __declspec(dllexport) unsigned int CenterlineExtraction<float>(float *data, int width, int height, int depth, int max_segment_length, int smoothing_span, float **out_x, float **out_y, float **out_z, unsigned int **out_idx);
+template unsigned int CenterlineExtraction<float>(float *data, int width, int height, int depth, int max_segment_length, int smoothing_span, float **out_x, float **out_y, float **out_z, unsigned int **out_idx);
 template unsigned int CenterlineExtraction<double>(double *data, int width, int height, int depth, int max_segment_length, int smoothing_span, float **out_x, float **out_y, float **out_z, unsigned int **out_idx);
 template unsigned int CenterlineExtraction<int>(int *data, int width, int height, int depth, int max_segment_length, int smoothing_span, float **out_x, float **out_y, float **out_z, unsigned int **out_idx);
 template unsigned int CenterlineExtraction<unsigned int>(unsigned int *data, int width, int height, int depth, int max_segment_length, int smoothing_span, float **out_x, float **out_y, float **out_z, unsigned int **out_idx);
